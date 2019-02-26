@@ -10,14 +10,14 @@ class Estudiante(models.Model):
     FechaNacimiento = models.DateTimeField('date published')
 
     def __str__(self):
-        cadena = {(0) , (1)}
-        return self.cadena
+        cadena = self.Nombre + " " + self.PrimerApellido + " " + self.SegundoApellido
+        return cadena
 
-#Modelo de Curso
+# Modelo de Curso
 class Curso(models.Model):
     NombreCurso = models.CharField(max_length=100)
-    
-
+    Modulos = models.PositiveSmallIntegerField(default=0)
 
     def __str__(self):
-        return self.NombreCurso
+        cadena = self.NombreCurso + " - " + str(self.Modulos)
+        return cadena
