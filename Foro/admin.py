@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Estudiante,Curso
+from .models import Estudiante,Curso,Nota
 
 class EstudianteAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -15,5 +15,13 @@ class CursoAdmin(admin.ModelAdmin):
         ('', {'fields': ['Modulos']}),
     ]
 
+class NotaAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ('Informacion',{'fields': ['NombreCurso'],}),
+        ('', {'fields': ['Estudiante']}),
+        ('', {'fields': ['Nota']}),
+    ]
+
 admin.site.register(Estudiante, EstudianteAdmin)
 admin.site.register(Curso, CursoAdmin)
+admin.site.register(Nota, NotaAdmin)

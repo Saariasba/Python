@@ -21,3 +21,13 @@ class Curso(models.Model):
     def __str__(self):
         cadena = self.NombreCurso + " - " + str(self.Modulos)
         return cadena
+
+# Modelo de Nota
+class Nota(models.Model):
+    NombreCurso = models.ForeignKey(Curso,on_delete=models.CASCADE)
+    Estudiante = models.ForeignKey(Estudiante,on_delete=models.CASCADE)
+    Nota = models.PositiveSmallIntegerField(default=0)
+
+    def __str__(self):
+        cadena = str(self.NombreCurso) + " - " +str(self.Estudiante) +" - "+ str(self.Nota)
+        return cadena
